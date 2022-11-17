@@ -30,7 +30,7 @@ body{
  APP CORE 
 ----------*/
 
-/*-------- Aside & Chat History --------*/
+/*-------- Aside/Chat History --------*/
 
 aside{
    display: flex;
@@ -39,10 +39,11 @@ aside{
 }
 
 .profile-info{
+   display: flex;
+   justify-content: space-between;
    width: 100%;
-   height: 3.125rem;
-   /* Debug */
-   background-color: red;
+   padding: .9375rem .625rem;
+   background-color: #eaeaea;
 }
 
 .notifications-settings{
@@ -59,6 +60,31 @@ aside{
    background-color: blueviolet;
 }
 
+/* Profile Information */
+
+.profile-col{
+   display: flex;
+   align-items: center;
+}
+
+.profile-img{
+   width: 3.125rem;
+   padding-right: .3125rem;
+   border-radius: 50%;
+}
+
+.profile-icon{
+   font-size: 1.125rem;
+   padding-right: .9375rem;
+   color: grey;
+}
+
+.end-icon{
+   padding-right: .625rem;
+}
+
+/* /Profile Information */
+
 /*-------- Chat Section --------*/
 
 .chat-section{
@@ -69,7 +95,7 @@ aside{
 
 .current-chat-infos{
    width: 100%;
-   height: 3.125rem;
+   height: 4.6875rem;
    /* Debug */
    background-color: beige;
 }
