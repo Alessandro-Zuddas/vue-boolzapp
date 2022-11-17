@@ -125,6 +125,7 @@ aside{
    justify-content: space-between;
    width: 100%;
    height: 4.6875rem;
+   z-index: 100;
    padding: 0 .625rem;
    background-color: #eaeaea;
    border-left: 0.5px solid lightgrey;
@@ -143,6 +144,7 @@ aside{
    flex-direction: column;
    width: 100%;
    flex-grow: 1;
+   overflow-y: auto;
    padding: 3.125rem 3.125rem;
    background-image: url(../img/mine.jpg);
 }
