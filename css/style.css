@@ -136,6 +136,8 @@ aside{
 
 /* /Current Chat Infos */
 
+/* Chat Table */
+
 .chat-table{
    display: flex;
    flex-direction: column;
@@ -143,13 +145,6 @@ aside{
    flex-grow: 1;
    padding: 3.125rem 3.125rem;
    background-image: url(../img/mine.jpg);
-}
-
-.chat-input{
-   width: 100%;
-   height: 4.0625rem;
-   /* Debug */
-   background-color: bisque;
 }
 
 .recived-container{
@@ -182,3 +177,43 @@ aside{
    padding: .9375rem .9375rem;
    padding-right: 12.5rem;
 }
+
+/* Chat Table */
+
+/* Chat Input */
+
+.chat-input{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   text-align: center;
+   width: 100%;
+   height: 4.0625rem;
+   background-color: #f3eeea;
+}
+
+.chat-input-col-sm{
+   width: 10%;
+}
+
+.chat-input-col-lg{
+   width: 80%;
+}
+
+.input-icon{
+   font-size: 1.5625rem;
+   color: grey;
+}
+
+.send-icon{
+   color: green;
+}
+
+.new-message-input{
+   width: 100%;
+   padding: .75rem;
+   border: none;
+   border-radius: .3125rem;
+}
+
+/* /Chat Input */
