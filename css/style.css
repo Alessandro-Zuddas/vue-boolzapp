@@ -12,3 +12,38 @@
 /*----------
    COMMON 
 ----------*/
+
+body{
+   max-width: 100vw;
+   max-height: 100vh;
+   background: linear-gradient(to top, white 90%, #009688 10%)
+}
+
+.container{
+   display: flex;
+   max-width: 80rem;
+   height: calc(100vh - 3.125rem);
+   margin: 1.5625rem auto;
+}
+
+/*----------
+ APP CORE 
+----------*/
+
+/*-------- Aside --------*/
+
+aside{
+   width: 33.3%;
+   /* Debug */
+   height: 100%;
+   background-color: aqua;
+}
+
+/*-------- Chat Section --------*/
+
+.chat-section{
+   width: 66.6%;
+   /* Debug */
+   height: 100%;
+   background-color: aquamarine;
+}
