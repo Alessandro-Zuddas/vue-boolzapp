@@ -77,9 +77,11 @@
                                 <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="Profile Image">
                                 <div>
                                     {{contact.name}} <br> 
-                                    <small class="last-message-text" v-for="(message, index) in contact.messages">{{message.message}}</small>
+                                    <div v-for="(message, index) in contact.messages">
+                                        <small class="last-message-text" v-if="index === contact.messages.length -1">{{ message.message }}</small>
+                                        <small class="last-message-date" v-if="index === contact.messages.length -1">{{message.date}}</small>
+                                    </div>
                                 </div>
-                                <small class="last-message-date">12:00</small>
                             </li>
                         </ul>
                         <!-- /Latest chats -->
