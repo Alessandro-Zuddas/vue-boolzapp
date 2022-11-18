@@ -15,6 +15,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">  
         <!-- /Google Fonts -->
+        <!-- Moment js -->
+        <script src="https://momentjs.com/downloads/moment.js"></script>
+        <script src="https://momentjs.com/downloads/moment-with-locales.js"></script>
+        <!-- /Moment js -->
         <!-- Vue.js CDN -->
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
         <!-- /Vue.js CDN -->
@@ -80,7 +84,7 @@
                                     {{contact.name}} <br> 
                                     <div v-for="(message, index) in contact.messages">
                                         <small class="last-message-text" v-if="index === contact.messages.length -1">{{ message.message }}</small>
-                                        <small class="last-message-date" v-if="index === contact.messages.length -1">{{ message.date }}</small>
+                                        <small class="last-message-date" v-if="index === contact.messages.length -1">{{ dateFormat(message.date) }}</small>
                                     </div>
                                 </div>
                             </li>
@@ -120,7 +124,7 @@
                         <div class="message-container" v-for="message in contacts[currentContact].messages">
                             <p class="message" 
                                 :class="{ sent: message.status === 'sent', received: message.status === 'received' }"> 
-                                {{ message.message }} <small class="mex-date"> {{ message.date }} </small>
+                                {{ message.message }} <small class="mex-date"> {{ dateFormat(message.date) }} </small>
                             </p>
                         </div>
                         <!-- /Message -->
