@@ -73,7 +73,8 @@
  
                         <!-- Latest chats -->
                         <ul class="contact-list">
-                            <li class="contact" v-for="(contact, index) in contacts">
+                            <li class="contact" v-for="(contact, index) in contacts" @click="onContactClick(index)" 
+                            :class="{ active: currentContact === index }">
                                 <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="Profile Image">
                                 <div>
                                     {{contact.name}} <br> 

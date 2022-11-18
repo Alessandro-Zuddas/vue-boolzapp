@@ -26,6 +26,10 @@ body{
    margin: 1.5625rem auto;
 }
 
+.active{
+   background-color: #e9ebeb;
+}
+
 input:focus{
    outline: none;
 }
@@ -166,6 +170,8 @@ aside{
    display: flex;
    align-items: center;
    padding: .625rem .625rem;
+   border: .0313rem solid lightgrey;
+   cursor: pointer;
 }
 
 .last-message-text{

@@ -175,6 +175,8 @@ createApp({
     }
   },
   methods: {
-    
+    onContactClick(i){
+        this.currentContact = i;
+    }
   }
 }).mount('#app')
