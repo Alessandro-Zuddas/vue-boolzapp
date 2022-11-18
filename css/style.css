@@ -26,6 +26,10 @@ body{
    margin: 1.5625rem auto;
 }
 
+input:focus{
+   outline: none;
+}
+
 /*----------
  APP CORE 
 ----------*/
