@@ -75,6 +75,10 @@ aside{
    border-radius: 50%;
 }
 
+.user-name{
+   font-size: 1.125rem;
+}
+
 .profile-icon{
    font-size: 1.125rem;
    padding-right: .9375rem;
@@ -123,7 +127,7 @@ aside{
    display: flex;
    justify-content: center;
    width: 10%;
-   padding: .3125rem .3125rem;
+   padding: .625rem .3125rem;
    background-color: white;
    border: .0125rem solid lightgrey;
    cursor: pointer;
@@ -135,7 +139,7 @@ aside{
 
 .search-chats-input{
    width: 100%;
-   padding: .3125rem 0;
+   padding: .625rem .3125rem;
    border: .0125rem solid lightgrey;
 }
 
