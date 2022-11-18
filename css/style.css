@@ -64,6 +64,7 @@ aside{
 .chat-history{
    width: 100%;
    flex-grow: 1;
+   overflow-y: auto;
    background-color: white;
 }
 
@@ -121,6 +122,9 @@ aside{
 /* Recent Chats */
 
 .search-container{
+   position: sticky;
+   top: 0;
+   z-index: 100;
    display: flex;
    align-items: center;
    width: 100%;
@@ -149,7 +153,32 @@ aside{
    border: .0125rem solid lightgrey;
 }
 
+.search-icon{
+   color: gray;
+}
 
+.contact-list{
+   list-style: none;
+}
+
+.contact{
+   position: relative;
+   display: flex;
+   align-items: center;
+   padding: .625rem .625rem;
+}
+
+.last-message-text{
+   color: grey;
+}
+
+.last-message-date{
+   position: absolute;
+   top: 8%;
+   right: 2%;
+   font-size: .75rem;
+   color: grey;
+}
 
 /* /Recent Chats  */
 
