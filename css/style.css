@@ -202,21 +202,20 @@ aside{
    margin-bottom: .3125rem;
 }
 
-.recived{
+.message{
    position: relative;
-   background-color: white;
    border-radius: .625rem;
    padding: .9375rem .9375rem;
    padding-right: 12.5rem;
 }
 
+.received{
+   background-color: white;
+}
+
 .sent{
-   position: relative;
    background-color: #d5f9ba;
    margin-left: auto;
-   border-radius: .625rem;
-   padding: .9375rem .9375rem;
-   padding-right: 12.5rem;
 }
 
 .mex-date{
