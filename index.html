@@ -79,7 +79,7 @@
                                     {{contact.name}} <br> 
                                     <div v-for="(message, index) in contact.messages">
                                         <small class="last-message-text" v-if="index === contact.messages.length -1">{{ message.message }}</small>
-                                        <small class="last-message-date" v-if="index === contact.messages.length -1">{{message.date}}</small>
+                                        <small class="last-message-date" v-if="index === contact.messages.length -1">{{ message.date }}</small>
                                     </div>
                                 </div>
                             </li>
@@ -96,8 +96,10 @@
                     <div class="current-chat-infos">
                         <!-- Profile infos -->
                         <div class="profile-col">
-                            <img class="profile-img" src="img/avatar_5.jpg" alt="">
-                            <div>Michele <br> <small class="last-login">Ultimo accesso oggi alle 12:00</small></div>
+                            <img class="profile-img" :src="`img/avatar${contacts[currentContact].avatar}.jpg`" alt="">
+                            <div>{{ contacts[currentContact].name }} <br> 
+                                <small class="last-login">Ultimo accesso: oggi alle 12:00</small>
+                            </div>
                         </div>
                         <!-- /Profile infos -->
 
@@ -113,17 +115,14 @@
 
                     <!-- Chat Table -->
                     <div class="chat-table">
-                        <!-- Recived message -->
-                        <div class="message-container">
-                            <p class="message received">Alalala <small class="mex-date">12:00</small></p>
+                        <!-- Message -->
+                        <div class="message-container" v-for="message in contacts[currentContact].messages">
+                            <p class="message" 
+                                :class="{ sent: message.status === 'sent', received: message.status === 'received' }"> 
+                                {{ message.message }} <small class="mex-date"> {{ message.date }} </small>
+                            </p>
                         </div>
-                        <!-- /Recived message -->
-
-                        <!-- Sent message -->
-                        <div class="message-container">
-                            <p class="message sent">Alalala <small class="mex-date">12:00</small></p>        
-                        </div>
-                        <!-- /Sent message -->
+                        <!-- /Message -->
                     </div>
                     <!-- /Chat Table -->
 
