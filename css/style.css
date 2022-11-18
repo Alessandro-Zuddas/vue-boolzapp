@@ -36,6 +36,7 @@ aside{
    display: flex;
    flex-direction: column;
    width: 33.3%;
+   border: .0125rem solid lightgrey;
 }
 
 .profile-info{
@@ -44,6 +45,7 @@ aside{
    width: 100%;
    padding: .9375rem .625rem;
    background-color: #eaeaea;
+   border: .0125rem solid lightgrey;
 }
 
 .notifications-settings{
@@ -58,8 +60,6 @@ aside{
 .chat-history{
    width: 100%;
    flex-grow: 1;
-   /* Debug */
-   background-color: blueviolet;
 }
 
 /* Profile Information */
@@ -109,12 +109,45 @@ aside{
 
 /* /Notifications Settings */
 
+/* Recent Chats */
+
+.search-container{
+   display: flex;
+   align-items: center;
+   width: 100%;
+   padding: .625rem .625rem;
+   background-color: #fafafa;
+}
+
+.search-col-sm{
+   display: flex;
+   justify-content: center;
+   width: 10%;
+   padding: .3125rem .3125rem;
+   background-color: white;
+   border: .0125rem solid lightgrey;
+   cursor: pointer;
+}
+
+.search-col-lg{
+   width: 90%;
+}
+
+.search-chats-input{
+   width: 100%;
+   padding: .3125rem 0;
+   border: .0125rem solid lightgrey;
+}
+
+/* /Recent Chats  */
+
 /*--------------------- Chat Section ---------------------*/
 
 .chat-section{
    display: flex;
    flex-direction: column;
    width: 66.6%;
+   border: .0125rem solid lightgrey;
 }
 
 /* Current Chat Infos */
