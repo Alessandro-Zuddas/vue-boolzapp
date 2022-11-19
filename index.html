@@ -132,17 +132,17 @@
                     <!-- /Chat Table -->
 
                     <!-- Chat Input -->
-                    <div class="chat-input">
+                    <form class="chat-input" @submit.prevent="onClickEnter">
                         <div class="chat-input-col-sm">
                             <i class="fa-regular fa-face-smile input-icon"></i>
                         </div>
                         <div class="chat-input-col-lg">
-                            <input class="new-message-input" type="text" placeholder="Scrivi messaggio">
+                            <input class="new-message-input" type="text" placeholder="Scrivi messaggio" v-model="newMessage.message">
                         </div>
                         <div class="chat-input-col-sm sm-right">
-                            <i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i>
+                           <button class="send-btn"><i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i></button>
                         </div>
-                    </div>
+                    </form>
                     <!-- /Chat Input -->
                 </section>
                 <!-- /Chat Body Section -->

@@ -9,7 +9,7 @@ createApp({
         currentContact: 0,
 
         newMessage: {
-            date: '18/11/2020 20:00:00',
+            date: '',
             message: '',
             status: ''
         },
@@ -190,6 +190,36 @@ createApp({
 
         return moment(data).fromNow();
 
+    },
+
+    onClickEnter(){
+        this.newMessage.date = new Date();
+        this.newMessage.status = "sent";
+        this.contacts[this.currentContact].messages.push(this.newMessage);
+
+        this.newMessage = {
+            date: '',
+            message: '',
+            status: ''
+        }
+
+        setTimeout(() => { 
+
+            this.newMessage = {
+                message: "Scusa non posso parlare. Ti scrivo dopo!",
+                status: "received"
+            }
+
+            this.newMessage.date = new Date();
+            this.contacts[this.currentContact].messages.push(this.newMessage);
+
+            this.newMessage = {
+                date: '',
+                message: '',
+                status: ''
+            }
+
+         }, 1000);
     }
 
   },created(){

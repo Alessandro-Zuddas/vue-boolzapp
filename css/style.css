@@ -300,4 +300,9 @@ aside{
    border-radius: .3125rem;
 }
 
+.send-btn{
+   border: none;
+   cursor: pointer;
+}
+
 /* /Chat Input */
