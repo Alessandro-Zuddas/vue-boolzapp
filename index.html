@@ -123,7 +123,8 @@
                     <!-- Chat Table -->
                     <div class="chat-table">
                         <!-- Message -->
-                        <div class="message-container" v-for="message in contacts[currentContact].messages">
+                        <div class="message-container" v-for="(message, index) in contacts[currentContact].messages" 
+                        @click="onMessageClick(index)">
                             <p class="message" 
                                 :class="{ sent: message.status === 'sent', received: message.status === 'received' }"> 
                                 {{ message.message }} <small class="mex-date"> {{ dateFormat(message.date) }} </small>

@@ -253,6 +253,10 @@ createApp({
             }
         })
 
+    },
+
+    onMessageClick(i){
+        console.log(i);
     }
 
   },created(){
