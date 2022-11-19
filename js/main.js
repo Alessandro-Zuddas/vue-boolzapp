@@ -14,6 +14,8 @@ createApp({
             status: ''
         },
 
+        searchedLetters: "",
+
         contacts: [
             {
                 name: 'Michele',
@@ -205,9 +207,28 @@ createApp({
 
         setTimeout(() => { 
 
-            this.newMessage = {
-                message: "Scusa non posso parlare. Ti scrivo dopo!",
-                status: "received"
+            const rndNumber = Math.floor(Math.random() * 3);
+
+            if(rndNumber === 0){
+
+                this.newMessage = {
+                    message: "Scusa non posso parlare. Ti scrivo dopo!",
+                    status: "received"
+                }
+
+            }else if(rndNumber === 1){
+
+                this.newMessage = {
+                    message: "Ok!",
+                    status: "received"
+                }
+
+            }else if(rndNumber === 2){
+
+                this.newMessage = {
+                    message: "Chiamami!",
+                    status: "received"
+                }
             }
 
             this.newMessage.date = new Date();
@@ -220,6 +241,18 @@ createApp({
             }
 
          }, 1000);
+    },
+
+    onContactSearch(){
+
+        return this.contacts.filter(contact => {
+            if(contact.name.toLowerCase().includes(this.searchedLetters.toLowerCase())){
+                contact.visible = true;
+            }else{
+                contact.visible = false;
+            }
+        })
+
     }
 
   },created(){

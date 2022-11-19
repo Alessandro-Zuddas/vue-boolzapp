@@ -70,15 +70,17 @@
                                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                             </div>
                             <div class="search-col-lg">
-                                <input class="search-chats-input" type="search" placeholder="Cerca o inizia una nuova chat">
+                                <input class="search-chats-input" type="search" 
+                                placeholder="Cerca o inizia una nuova chat"
+                                @keyup="onContactSearch" v-model="searchedLetters">
                             </div>
                         </div>
                         <!-- /Search Bar -->
  
                         <!-- Latest chats -->
                         <ul class="contact-list">
-                            <li class="contact" v-for="(contact, index) in contacts" @click="onContactClick(index)" 
-                            :class="{ active: currentContact === index }">
+                            <li class="contact" v-for="(contact, index) in contacts" @click="onContactClick(index) " 
+                            :class="{ active: currentContact === index }" v-show="contact.visible === true">
                                 <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="Profile Image">
                                 <div>
                                     {{contact.name}} <br> 
@@ -140,7 +142,7 @@
                             <input class="new-message-input" type="text" placeholder="Scrivi messaggio" v-model="newMessage.message">
                         </div>
                         <div class="chat-input-col-sm sm-right">
-                           <button class="send-btn"><i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i></button>
+                            <button class="send-btn" @submit.prevent="onClickEnter"><i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i></button>
                         </div>
                     </form>
                     <!-- /Chat Input -->
