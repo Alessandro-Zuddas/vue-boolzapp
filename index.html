@@ -105,7 +105,7 @@
                         <div class="profile-col">
                             <img class="profile-img" :src="`img/avatar${contacts[currentContact].avatar}.jpg`" alt="">
                             <div>{{ contacts[currentContact].name }} <br> 
-                                <small class="last-login">Ultimo accesso: oggi alle 12:00</small>
+                                <small class="last-login">Ultimo accesso: {{ dateFormat(contacts[currentContact].messages.date) }}</small>
                             </div>
                         </div>
                         <!-- /Profile infos -->
