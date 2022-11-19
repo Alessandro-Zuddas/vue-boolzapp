@@ -255,8 +255,14 @@ createApp({
 
     },
 
-    onMessageClick(i){
-        console.log(i);
+    onInfoClick(i){
+        console.log(this.contacts[this.currentContact].messages[i].name);
+        console.log(this.contacts[this.currentContact].messages[i].date);
+        console.log(this.contacts[this.currentContact].messages[i].message);
+    },
+
+    onDeleteClick(i){
+        this.contacts[this.currentContact].messages.splice(i, 1);
     }
 
   },created(){

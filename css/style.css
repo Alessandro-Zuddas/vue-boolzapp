@@ -9,6 +9,18 @@
    font-family: 'Lato', sans-serif;
 }
 
+/* RESET REGOLE BOOTSTRAP */
+
+ul{
+   padding-left: 0;
+}
+
+p{
+   margin-bottom: 0;
+}
+
+/* /RESET REGOLE BOOTSTRAP */
+
 /*----------
    COMMON 
 ----------*/
@@ -148,7 +160,7 @@ aside{
    display: flex;
    justify-content: center;
    width: 10%;
-   padding: .625rem .3125rem;
+   padding: .5625rem .625rem;
    background-color: white;
    border: .0125rem solid lightgrey;
    cursor: pointer;
@@ -160,7 +172,7 @@ aside{
 
 .search-chats-input{
    width: 100%;
-   padding: .625rem .3125rem;
+   padding: .3125rem .3125rem;
    border: .0125rem solid lightgrey;
 }
 
@@ -268,6 +280,7 @@ aside{
    font-size: .75rem;
    color: grey;
 }
+
 
 /* Chat Table */
 

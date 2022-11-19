@@ -4,9 +4,6 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Mine Style -->
-        <link rel="stylesheet" href="css/style.css">
-        <!-- /Mine Style -->
         <!-- FontAwesome Library -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- /FontAwesome Library -->
@@ -25,6 +22,10 @@
         <!-- Axios CDN -->
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- /Axios CDN -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <!-- Mine Style -->
+        <link rel="stylesheet" href="css/style.css">
+        <!-- /Mine Style -->
         <title>Boolzapp</title>
     </head>
     <body>
@@ -123,11 +124,20 @@
                     <!-- Chat Table -->
                     <div class="chat-table">
                         <!-- Message -->
-                        <div class="message-container" v-for="(message, index) in contacts[currentContact].messages" 
-                        @click="onMessageClick(index)">
-                            <p class="message" 
+                        <div class="message-container" v-for="(message, index) in contacts[currentContact].messages">
+                            <p class="message dropdown" data-bs-toggle="dropdown"
                                 :class="{ sent: message.status === 'sent', received: message.status === 'received' }"> 
                                 {{ message.message }} <small class="mex-date"> {{ dateFormat(message.date) }} </small>
+
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#" @click="onInfoClick(index)">Info messaggio</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="onDeleteClick(index)">Elimina messaggio</a></li>
+                                </ul>
+
+                                <div class="info-container">
+                                    
+                                </div>
+
                             </p>
                         </div>
                         <!-- /Message -->
@@ -143,7 +153,9 @@
                             <input class="new-message-input" type="text" placeholder="Scrivi messaggio" v-model="newMessage.message">
                         </div>
                         <div class="chat-input-col-sm sm-right">
-                            <button class="send-btn" @submit.prevent="onClickEnter"><i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i></button>
+                            <button class="send-btn" @submit.prevent="onClickEnter">
+                                <i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i>
+                            </button>
                         </div>
                     </form>
                     <!-- /Chat Input -->
@@ -151,10 +163,11 @@
                 <!-- /Chat Body Section -->
 
             </div>
-            
+
         </div>
         <!-- /Application Core -->
 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
