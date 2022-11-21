@@ -207,38 +207,25 @@ createApp({
 
         setTimeout(() => { 
 
-            const rndNumber = Math.floor(Math.random() * 3);
-
-            if(rndNumber === 0){
+            axios.get(`https://api.chucknorris.io/jokes/random`)
+            .then((response) =>{
+                
+                const result = response.data;
 
                 this.newMessage = {
-                    message: "Scusa non posso parlare. Ti scrivo dopo!",
+                    message: result.value,
                     status: "received"
                 }
 
-            }else if(rndNumber === 1){
-
+                this.newMessage.date = new Date();
+                this.contacts[this.currentContact].messages.push(this.newMessage);
+    
                 this.newMessage = {
-                    message: "Ok!",
-                    status: "received"
+                    date: '',
+                    message: '',
+                    status: ''
                 }
-
-            }else if(rndNumber === 2){
-
-                this.newMessage = {
-                    message: "Chiamami!",
-                    status: "received"
-                }
-            }
-
-            this.newMessage.date = new Date();
-            this.contacts[this.currentContact].messages.push(this.newMessage);
-
-            this.newMessage = {
-                date: '',
-                message: '',
-                status: ''
-            }
+            });
 
          }, 1000);
     },
