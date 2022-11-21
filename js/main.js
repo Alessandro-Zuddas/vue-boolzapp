@@ -278,9 +278,9 @@ createApp({
 
     // Info of the selected message
     onInfoClick(i){
-        let isVisible = this.contacts[this.currentContact].messages[i].infoVisible;
+        let infoIsVisible = this.contacts[this.currentContact].messages[i].infoVisible;
 
-        if(isVisible){
+        if(infoIsVisible){
             this.contacts[this.currentContact].messages[i].infoVisible = false;
         }else{
             this.contacts[this.currentContact].messages[i].infoVisible = true;

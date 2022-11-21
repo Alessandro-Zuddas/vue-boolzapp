@@ -134,17 +134,24 @@
                                     <li><a class="dropdown-item" href="#" @click="onDeleteClick(index)">Elimina messaggio</a></li>
                                 </ul>
 
+                                <!-- Message Infos -->
                                 <div v-if="message.infoVisible === true" class="message-info" @click="onInfoClick(index)">
                                     {{ message.message }}
                                     {{ message.date }}
                                 </div>
+                                <!-- /Message Infos -->
                             </p>
                         </div>
-
-                        <div v-else class="welcome-text">
-                            <h2>Benvenuto su Boolzapp! <br> Seleziona un contatto per riprendere la conversazione o creane una nuova!</h2>
-                        </div>
                         <!-- /Message -->
+
+                        <!-- Welcome text -->
+                        <div v-else class="welcome-text">
+                            <h2>
+                                Benvenuto su Boolzapp! <br> 
+                                Seleziona un contatto per riprendere la conversazione o creane una nuova!
+                            </h2>
+                        </div>
+                        <!-- /Welcome text -->
                     </div>
                     <!-- /Chat Table -->
 
