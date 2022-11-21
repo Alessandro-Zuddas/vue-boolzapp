@@ -184,16 +184,19 @@ createApp({
   },
   methods: {
 
+    // Contact selection
     onContactClick(i){
         this.currentContact = i;
     },
 
+    // Date format info
     dateFormat(data){
 
         return moment(data).fromNow();
 
     },
 
+    // Send a new message and receive a new one
     onClickEnter(){
         this.newMessage.date = new Date();
         this.newMessage.status = "sent";
@@ -230,6 +233,7 @@ createApp({
          }, 1000);
     },
 
+    // Contact search
     onContactSearch(){
 
         return this.contacts.filter(contact => {
@@ -242,6 +246,7 @@ createApp({
 
     },
 
+    // Delete a message
     onDeleteClick(i){
         this.contacts[this.currentContact].messages.splice(i, 1);
     }
