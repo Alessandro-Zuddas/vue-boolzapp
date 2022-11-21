@@ -248,6 +248,15 @@ aside{
    background-image: url(../img/mine.jpg);
 }
 
+.welcome-text{
+   text-align: center;
+   margin: auto;
+   padding: 6.25rem 6.25rem;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   border-radius: 1.5625rem;
+}
+
 .message-container{
    position: relative;
    display: flex;

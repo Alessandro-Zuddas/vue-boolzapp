@@ -6,7 +6,7 @@ createApp({
   data() {
     return {
         
-        currentContact: 0,
+        currentContact: -1,
 
         newMessage: {
             date: '',
@@ -253,12 +253,6 @@ createApp({
             }
         })
 
-    },
-
-    onInfoClick(i){
-        console.log(this.contacts[this.currentContact].messages[i].name);
-        console.log(this.contacts[this.currentContact].messages[i].date);
-        console.log(this.contacts[this.currentContact].messages[i].message);
     },
 
     onDeleteClick(i){
