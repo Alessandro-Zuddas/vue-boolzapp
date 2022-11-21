@@ -48,19 +48,29 @@
 
                         <!-- Profile Actions  -->
                         <div class="profile-col">
-                            <i class="fa-solid fa-circle-notch profile-icon"></i>
+                            <!-- Page reload button -->
+                            <i class="fa-solid fa-circle-notch profile-icon" @click="onClickReload"></i>
+                            <!-- /Page reload button -->
                             <i class="fa-solid fa-message profile-icon"></i>
+                            <!-- Change theme dropdown -->
                             <i class="fa-solid fa-ellipsis-vertical profile-icon end-icon dropdown" 
-                            data-bs-toggle="dropdown"></i>
-
+                                data-bs-toggle="dropdown">
+                            </i>
                             <ul class="dropdown-menu">
                                 <li v-if="isDarkMode === false">
-                                    <a class="dropdown-item" href="#" @click="onThemeChange">Tema scuro</a>
+                                    <a class="dropdown-item" href="#" @click="onThemeChange">
+                                        <i class="fa-sharp fa-solid fa-moon change-theme-icon"></i>
+                                        Tema scuro
+                                    </a>
                                 </li>
                                 <li v-else>
-                                    <a class="dropdown-item" href="#" @click="onThemeChange">Tema chiaro</a>
+                                    <a class="dropdown-item" href="#" @click="onThemeChange">
+                                        <i class="fa-regular fa-sun change-theme-icon"></i>
+                                        Tema chiaro
+                                    </a>
                                 </li>
                             </ul>
+                            <!-- /Change theme dropdown -->
                         </div>
                         <!-- /Profile Actions  -->
                     </div>
@@ -93,8 +103,9 @@
  
                         <!-- Latest chats -->
                         <ul class="contact-list">
-                            <li class="contact" v-for="(contact, index) in contacts" @click="onContactClick(index) " 
-                            :class="{ active: currentContact === index }" v-show="contact.visible === true">
+                            <li class="contact" v-for="(contact, index) in contacts" @click="onContactClick(index)" 
+                            :class="{ active: currentContact === index, 
+                            active_dark: isDarkMode === true && currentContact === index }" v-show="contact.visible === true">
                                 <img class="profile-img" :src="`img/avatar${contact.avatar}.jpg`" alt="Profile Image">
                                 <div>
                                     {{contact.name}} <br> 
@@ -115,22 +126,22 @@
                 <section class="chat-section">
                     <!-- Current chat Infos -->
                     <div v-if="currentContact >= 0" class="current-chat-infos"  :class="{ dark_mode_first : isDarkMode === true}">
-                        <!-- Profile infos -->
+                        <!-- Current profile infos -->
                         <div class="profile-col">
                             <img class="profile-img" :src="`img/avatar${contacts[currentContact].avatar}.jpg`" alt="">
                             <div :class="{ dark_mode_text : isDarkMode === true}">{{ contacts[currentContact].name }} <br> 
                                 <small class="last-login">Ultimo accesso: {{ dateFormat(contacts[currentContact].messages.date) }}</small>
                             </div>
                         </div>
-                        <!-- /Profile infos -->
+                        <!-- /Current profile infos -->
 
-                        <!-- Chat profile Actions  -->
+                        <!-- Current profile Actions  -->
                         <div class="profile-col">
                             <i class="fa-solid fa-magnifying-glass profile-icon"></i>
                             <i class="fa-sharp fa-solid fa-paperclip profile-icon"></i>
                             <i class="fa-solid fa-ellipsis-vertical profile-icon end-icon"></i>
                         </div>
-                        <!-- /Chat profile Actions -->
+                        <!-- /Current profile Actions -->
                     </div>
                     <!-- /Current chat Infos -->
 
@@ -142,11 +153,12 @@
                                 :class="{ sent: message.status === 'sent', received: message.status === 'received' }"> 
                                 {{ message.message }} <small class="mex-date"> {{ dateFormat(message.date) }} </small>
 
+                                <!-- Message actions -->
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#" @click="onInfoClick(index)">Info messaggio</a></li>
                                     <li><a class="dropdown-item" href="#" @click="onDeleteClick(index)">Elimina messaggio</a></li>
                                 </ul>
-
+                                <!-- /Message actions -->
                                 <!-- Message Infos -->
                                 <div v-if="message.infoVisible === true" class="message-info" @click="onInfoClick(index)">
                                     {{ message.message }}

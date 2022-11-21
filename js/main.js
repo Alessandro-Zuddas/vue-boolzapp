@@ -220,7 +220,7 @@ createApp({
 
     },
 
-    // Send a new message and receive a new one
+    // Send a message and receive a reply
     onClickEnter(){
         this.newMessage.date = new Date();
         this.newMessage.status = "sent";
@@ -257,7 +257,7 @@ createApp({
                 }
             });
 
-         }, 1000);
+        }, 1000);
     },
 
     // Contact search
@@ -273,7 +273,7 @@ createApp({
 
     },
 
-    // Delete a message
+    // Delete the selected message
     onDeleteClick(i){
         this.contacts[this.currentContact].messages.splice(i, 1);
     },
@@ -289,12 +289,18 @@ createApp({
         }
     },
 
+    // Change theme Clear/Dark
     onThemeChange(){
         if(this.isDarkMode){
             this.isDarkMode = false;
         }else{
             this.isDarkMode = true;
         }
+    },
+
+    // Reload the application
+    onClickReload(){
+        window.location.reload();
     }
   }
 }).mount('#app');
