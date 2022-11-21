@@ -291,6 +291,16 @@ aside{
    color: grey;
 }
 
+.message-info{
+   text-align: center;
+   margin: auto;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   border-radius: 1.5625rem;
+   padding: .625rem .625rem;
+   margin-left: .3125rem;
+}
+
 
 /* Chat Table */
 

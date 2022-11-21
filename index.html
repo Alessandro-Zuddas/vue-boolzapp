@@ -130,9 +130,14 @@
                                 {{ message.message }} <small class="mex-date"> {{ dateFormat(message.date) }} </small>
 
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="#">Info messaggio</a></li>
+                                    <li><a class="dropdown-item" href="#" @click="onInfoClick(index)">Info messaggio</a></li>
                                     <li><a class="dropdown-item" href="#" @click="onDeleteClick(index)">Elimina messaggio</a></li>
                                 </ul>
+
+                                <div v-if="message.infoVisible === true" class="message-info" @click="onInfoClick(index)">
+                                    {{ message.message }}
+                                    {{ message.date }}
+                                </div>
                             </p>
                         </div>
 
