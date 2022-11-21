@@ -112,10 +112,12 @@ aside{
    font-size: 1.125rem;
    padding-right: .9375rem;
    color: grey;
+   cursor: pointer;
 }
 
 .end-icon{
    padding-right: .625rem;
+   cursor: pointer;
 }
 
 /* /Profile Information */
@@ -346,3 +348,24 @@ aside{
 }
 
 /* /Chat Input */
+
+/*---------- Dark mode settings ---------*/
+
+.dark_mode_first{
+   background-color: #1d1d1d;
+}
+
+.dark_mode_second{
+   background-color: #373737;
+}
+
+.dark_mode_text{
+   color: white;
+}
+
+.dark_mode_input{
+   border-color: black;
+   background-color: lightgrey;
+}
+
+/*---------- Dark mode settings ---------*/

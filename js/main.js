@@ -5,6 +5,8 @@ const { createApp } = Vue
 createApp({
   data() {
     return {
+
+        isDarkMode: false,
         
         currentContact: -1,
 
@@ -285,11 +287,14 @@ createApp({
         }else{
             this.contacts[this.currentContact].messages[i].infoVisible = true;
         }
+    },
+
+    onThemeChange(){
+        if(this.isDarkMode){
+            this.isDarkMode = false;
+        }else{
+            this.isDarkMode = true;
+        }
     }
-
-  },created(){
-    
-    
-
   }
-}).mount('#app')
+}).mount('#app');

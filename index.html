@@ -38,11 +38,11 @@
                 <!-- Chat History -->
                 <aside>
                     <!-- Profile Information -->
-                    <div class="profile-info">
+                    <div class="profile-info" :class="{ dark_mode_first : isDarkMode === true}">
                         <!-- User Info  -->
                         <div class="profile-col">
                             <img class="profile-img" src="img/avatar_8.jpg" alt="Profile Image">
-                            <strong class="user-name">Alessandro</strong>
+                            <strong class="user-name" :class="{ dark_mode_text : isDarkMode === true}">Alessandro</strong>
                         </div>
                         <!-- /User Info  -->
 
@@ -50,7 +50,17 @@
                         <div class="profile-col">
                             <i class="fa-solid fa-circle-notch profile-icon"></i>
                             <i class="fa-solid fa-message profile-icon"></i>
-                            <i class="fa-solid fa-ellipsis-vertical profile-icon end-icon"></i>
+                            <i class="fa-solid fa-ellipsis-vertical profile-icon end-icon dropdown" 
+                            data-bs-toggle="dropdown"></i>
+
+                            <ul class="dropdown-menu">
+                                <li v-if="isDarkMode === false">
+                                    <a class="dropdown-item" href="#" @click="onThemeChange">Tema scuro</a>
+                                </li>
+                                <li v-else>
+                                    <a class="dropdown-item" href="#" @click="onThemeChange">Tema chiaro</a>
+                                </li>
+                            </ul>
                         </div>
                         <!-- /Profile Actions  -->
                     </div>
@@ -64,16 +74,17 @@
                     <!-- /Notifications Settings -->
 
                     <!-- Recent Chats -->
-                    <div class="chat-history">
+                    <div class="chat-history" :class="{ dark_mode_text : isDarkMode === true, dark_mode_second : isDarkMode === true}">
                         <!-- Search Bar -->
-                        <div class="search-container">
-                            <div class="search-col-sm">
+                        <div class="search-container" :class="{ dark_mode_second : isDarkMode === true}">
+                            <div class="search-col-sm"  :class="{ dark_mode_input : isDarkMode === true}">
                                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
                             </div>
                             <div class="search-col-lg">
                                 <input class="search-chats-input" type="search" 
                                 placeholder="Cerca o inizia una nuova chat"
-                                @keyup="onContactSearch" v-model="searchedLetters">
+                                @keyup="onContactSearch" v-model="searchedLetters"
+                                :class="{ dark_mode_input : isDarkMode === true}">
                             </div>
                         </div>
                         <!-- /Search Bar -->
@@ -101,11 +112,11 @@
                 <!-- Chat Body Section -->
                 <section class="chat-section">
                     <!-- Current chat Infos -->
-                    <div v-if="currentContact >= 0" class="current-chat-infos">
+                    <div v-if="currentContact >= 0" class="current-chat-infos"  :class="{ dark_mode_first : isDarkMode === true}">
                         <!-- Profile infos -->
                         <div class="profile-col">
                             <img class="profile-img" :src="`img/avatar${contacts[currentContact].avatar}.jpg`" alt="">
-                            <div>{{ contacts[currentContact].name }} <br> 
+                            <div :class="{ dark_mode_text : isDarkMode === true}">{{ contacts[currentContact].name }} <br> 
                                 <small class="last-login">Ultimo accesso: {{ dateFormat(contacts[currentContact].messages.date) }}</small>
                             </div>
                         </div>
@@ -156,15 +167,17 @@
                     <!-- /Chat Table -->
 
                     <!-- Chat Input -->
-                    <form v-if="currentContact >= 0" class="chat-input" @submit.prevent="onClickEnter">
+                    <form v-if="currentContact >= 0" class="chat-input" @submit.prevent="onClickEnter"
+                    :class="{ dark_mode_second : isDarkMode === true}">
                         <div class="chat-input-col-sm">
                             <i class="fa-regular fa-face-smile input-icon"></i>
                         </div>
                         <div class="chat-input-col-lg">
-                            <input class="new-message-input" type="text" placeholder="Scrivi messaggio" v-model="newMessage.message">
+                            <input class="new-message-input" type="text" placeholder="Scrivi messaggio" v-model="newMessage.message"
+                            :class="{ dark_mode_input : isDarkMode === true}">
                         </div>
                         <div class="chat-input-col-sm sm-right">
-                            <button class="send-btn" @submit.prevent="onClickEnter">
+                            <button class="send-btn" @submit.prevent="onClickEnter" :class="{ dark_mode_second : isDarkMode === true}">
                                 <i class="fa-sharp fa-solid fa-circle-arrow-right input-icon send-icon"></i>
                             </button>
                         </div>
