@@ -195,7 +195,7 @@ aside{
    display: flex;
    align-items: center;
    padding: .625rem .625rem;
-   border: .0313rem solid lightgrey;
+   border-bottom: .0313rem solid lightgrey;
    cursor: pointer;
 }
 
