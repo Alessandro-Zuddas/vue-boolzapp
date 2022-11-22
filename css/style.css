@@ -380,4 +380,12 @@ aside{
    background-color: #3a3a3a;
 }
 
+.dark_mode_chat{
+   background-image: url(../img/mine-dark.jpg);
+}
+
+.dark_mode_welcome{
+   background-color: rgba(92, 83, 83, 0.5);
+}
+
 /*---------- Dark mode settings ---------*/

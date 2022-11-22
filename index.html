@@ -146,7 +146,7 @@
                     <!-- /Current chat Infos -->
 
                     <!-- Chat Table -->
-                    <div class="chat-table">
+                    <div class="chat-table" :class="{ dark_mode_chat : isDarkMode === true}">
                         <!-- Message -->
                         <div v-if="currentContact >= 0" class="message-container" v-for="(message, index) in contacts[currentContact].messages">
                             <p class="message dropdown" data-bs-toggle="dropdown"
@@ -170,7 +170,7 @@
                         <!-- /Message -->
 
                         <!-- Welcome text -->
-                        <div v-else class="welcome-text">
+                        <div v-else class="welcome-text" :class="{ dark_mode_welcome : isDarkMode === true}">
                             <h2>
                                 Benvenuto su Boolzapp! <br> 
                                 Seleziona un contatto per riprendere la conversazione o creane una nuova!
