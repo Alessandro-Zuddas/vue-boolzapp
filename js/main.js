@@ -253,7 +253,7 @@ createApp({
 
                 this.newMessage.date = new Date();
                 this.contacts[pointedContact].messages.push(this.newMessage);
-                this.notifyMe();
+                this.notifyMe(this.newMessage.message);
     
                 this.newMessage = {
                     date: '',
@@ -322,13 +322,13 @@ createApp({
     },
 
     // Request the permission for notification
-    notifyMe() {
+    notifyMe(message) {
         console.log(Notification.permission)
 
         if (Notification.permission === 'granted'){
 
             console.log(Notification.permission);
-            this.showNotification();
+            this.showNotification(message);
 
         }else if(Notification.permission !== "denied"){
 
@@ -336,7 +336,7 @@ createApp({
                 if(permission === "garanted"){
 
                     console.log(Notification.permission)
-                    this.showNotification();
+                    this.showNotification(message);
                     
                 }
             })
@@ -345,9 +345,9 @@ createApp({
     },
 
     // Creation of a notification
-    showNotification(){
+    showNotification(message){
         const notification = new Notification(this.contacts[this.currentContact].name, {
-            body: "Ti ha scritto un nuovo messaggio!",
+            body: message,
             icon: "https://cdn.pixabay.com/photo/2015/08/03/13/58/whatsapp-873316__340.png",
         });
     }
