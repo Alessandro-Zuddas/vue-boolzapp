@@ -253,6 +253,7 @@ createApp({
 
                 this.newMessage.date = new Date();
                 this.contacts[pointedContact].messages.push(this.newMessage);
+                this.notifyMe();
     
                 this.newMessage = {
                     date: '',
@@ -308,12 +309,47 @@ createApp({
         window.location.reload();
     },
 
+    // Change the value of notify
     onNotifyChange(){
+
+        Notification.requestPermission();
+
         if(this.notifyOn){
             this.notifyOn = false;
         }else{
             this.notifyOn = true;
         }
+    },
+
+    // Request the permission for notification
+    notifyMe() {
+        console.log(Notification.permission)
+
+        if (Notification.permission === 'granted'){
+
+            console.log(Notification.permission);
+            this.showNotification();
+
+        }else if(Notification.permission !== "denied"){
+
+            Notification.requestPermission().then(permission => {
+                if(permission === "garanted"){
+
+                    console.log(Notification.permission)
+                    this.showNotification();
+                    
+                }
+            })
+
+        }
+    },
+
+    // Creation of a notification
+    showNotification(){
+        const notification = new Notification(this.contacts[this.currentContact].name, {
+            body: "Ti ha scritto un nuovo messaggio!",
+            icon: "https://cdn.pixabay.com/photo/2015/08/03/13/58/whatsapp-873316__340.png",
+        });
     }
   }
 }).mount('#app');
