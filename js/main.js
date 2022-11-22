@@ -233,6 +233,9 @@ createApp({
             infoVisible: false
         }
 
+        // Container of the current pointed contact
+        let pointedContact = this.currentContact;
+
         setTimeout(() => { 
 
             axios.get(`https://api.chucknorris.io/jokes/random`)
@@ -247,7 +250,7 @@ createApp({
                 }
 
                 this.newMessage.date = new Date();
-                this.contacts[this.currentContact].messages.push(this.newMessage);
+                this.contacts[pointedContact].messages.push(this.newMessage);
     
                 this.newMessage = {
                     date: '',
