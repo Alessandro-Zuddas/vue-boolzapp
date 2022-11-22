@@ -77,10 +77,21 @@
                     <!-- /Profile Information -->
 
                     <!-- Notifications Settings -->
-                    <div class="notifications-settings" :class="{ notify_dark : isDarkMode === true}">
+                    <div class="notifications-settings" v-if="notifyOn === false"
+                    :class="{ notify_dark : isDarkMode === true}">
                         <i class="fa-solid fa-bell-slash notify-icon"></i>
                         <small class="notify-info" :class="{ dark_mode_text : isDarkMode === true}">
-                            Ricevi notifiche di nuovi messaggi. <br> <a class="notify-link" href="#">Attiva notifiche desktop</a>
+                            Ricevi notifiche di nuovi messaggi. <br>
+                            <a @click="onNotifyChange" class="notify-link" href="#">Attiva notifiche desktop</a>
+                        </small>
+                    </div>
+
+                    <div v-else class="notifications-settings" 
+                    :class="{ notify_dark : isDarkMode === true}">
+                        <i class="fa-solid fa-bell notify-icon"></i>
+                        <small class="notify-info" :class="{ dark_mode_text : isDarkMode === true}">
+                            Non ricevere notifiche di nuovi messaggi. <br> 
+                            <a @click="onNotifyChange" class="notify-link" href="#">Disattiva notifiche desktop</a>
                         </small>
                     </div>
                     <!-- /Notifications Settings -->

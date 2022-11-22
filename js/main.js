@@ -7,6 +7,8 @@ createApp({
     return {
 
         isDarkMode: false,
+
+        notifyOn: false,
         
         currentContact: -1,
 
@@ -304,6 +306,14 @@ createApp({
     // Reload the application
     onClickReload(){
         window.location.reload();
+    },
+
+    onNotifyChange(){
+        if(this.notifyOn){
+            this.notifyOn = false;
+        }else{
+            this.notifyOn = true;
+        }
     }
   }
 }).mount('#app');
